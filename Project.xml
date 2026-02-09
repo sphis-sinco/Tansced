@@ -91,7 +91,7 @@
 
 	<!--Place custom nodes like icons here-->
 
-	<haxeflag name="--dce full" if="release" />
+	<haxeflag name="--dce full" />
 
 	<define name="CRASH_HANDLER" if="desktop" />
 
