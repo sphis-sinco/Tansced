@@ -13,9 +13,9 @@ using StringTools;
 
 class CrashHandler
 {
-	public static final FILE_PREFIX:String = 'KoyaCrash_';
+	public static final FILE_PREFIX:String = 'Tansced_';
 
-	public static final REPORT_PAGE:String = 'https://github.com/sphis-sinco/FunkinKoya/issues';
+	public static final REPORT_PAGE:String = 'https://github.com/sphis-sinco/Tansced/issues';
 
 	public static final FILE_LOCATION:String = 'crash';
 
@@ -52,7 +52,7 @@ class CrashHandler
 		}
 
 		errMsg += "\nPlease report this error to the GitHub page: " + REPORT_PAGE;
-		errMsg += "\n\n> Crash Handler written by: sqirra-rng, used by Psych Engine, and modified for Koya";
+		errMsg += "\n\n> Crash Handler originally written by: sqirra-rng";
 
 		if (!FileSystem.exists("./" + FILE_LOCATION)) FileSystem.createDirectory("./" + FILE_LOCATION);
 

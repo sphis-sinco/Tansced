@@ -1,6 +1,6 @@
-import flixel.FlxState;
+import overrides.TState;
 
-class MenuState extends FlxState
+class MenuState extends TState
 {
 	override public function new()
 	{
