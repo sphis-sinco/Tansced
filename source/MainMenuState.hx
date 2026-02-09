@@ -8,7 +8,7 @@ class MainMenuState extends MenuState
 	{
 		super.create();
 
-		logo = new MText(0, 64).makeText('Tansced', 16);
+		logo = new MText(0, 64).makeText('Tansced', 64);
 		add(logo);
 		logo.screenCenter(X);
 	}
