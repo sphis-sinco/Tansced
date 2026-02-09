@@ -1,14 +1,14 @@
-import overrides.TText;
+import macohi.overrides.MText;
 
 class MainMenuState extends MenuState
 {
-	public var logo:TText;
+	public var logo:MText;
 
 	override public function create()
 	{
 		super.create();
 
-		logo = new TText(0, 64).makeText('Tansced', 16);
+		logo = new MText(0, 64).makeText('Tansced', 16);
 		add(logo);
 		logo.screenCenter(X);
 	}

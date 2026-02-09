@@ -1,6 +1,6 @@
-import overrides.TState;
+import macohi.overrides.MState;
 
-class MenuState extends TState
+class MenuState extends MState
 {
 	override public function new()
 	{

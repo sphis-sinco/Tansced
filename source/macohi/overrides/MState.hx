@@ -1,4 +1,4 @@
-package overrides;
+package macohi.overrides;
 
 import flixel.FlxState;
 
@@ -6,4 +6,4 @@ import flixel.FlxState;
 	Override of `flixel.FlxState` to apply
 	custom functionality to it.
 **/
-class TState extends FlxState {}
+class MState extends FlxState {}
