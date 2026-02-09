@@ -1,3 +1,4 @@
+import macohi.debugging.CrashHandler;
 import flixel.FlxGame;
 import openfl.display.Sprite;
 
@@ -8,8 +9,6 @@ class Main extends Sprite
 		super();
 		addChild(new FlxGame(0, 0, InitState));
 
-		#if CRASH_HANDLER
-		openfl.Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(openfl.events.UncaughtErrorEvent.UNCAUGHT_ERROR, CrashHandler.onCrash);
-		#end
+		CrashHandler.initalize(null, 'Tansced_', null, 'Tansced');
 	}
 }

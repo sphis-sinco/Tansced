@@ -1,4 +1,7 @@
+package macohi.debugging;
+
 // crash handler stuff
+import haxe.Template;
 import lime.app.Application;
 #if CRASH_HANDLER
 import haxe.CallStack;
@@ -13,14 +16,44 @@ using StringTools;
 
 class CrashHandler
 {
-	public static final FILE_PREFIX:String = 'Tansced_';
+	public static var REPORT_PAGE:String = 'https://github.com/::github-user::/::github-repo::/issues';
+	public static var FILE_LOCATION:String = 'crash';
 
-	public static final REPORT_PAGE:String = 'https://github.com/sphis-sinco/Tansced/issues';
+	public static var FILE_PREFIX:String = 'Crash_';
 
-	public static final FILE_LOCATION:String = 'crash';
+	public static var GITHUB_USER:String = 'sphis-sinco';
+	public static var GITHUB_REPO:String = '';
 
-	// Code was entirely made by sqirra-rng for their fnf engine named "Izzy Engine", big props to them!!!
-	// very cool person for real they don't get enough credit for their work
+	public static function initalize(?new_file_location:String, ?new_file_prefix:String, ?new_github_user:String, ?new_github_repo:String)
+	{
+		if (new_file_prefix != null)
+			FILE_PREFIX = new_file_prefix;
+
+		if (new_github_user != null)
+			GITHUB_USER = new_github_user;
+
+		if (new_github_repo != null)
+			GITHUB_REPO = new_github_repo;
+
+		if (new_file_location != null)
+			FILE_LOCATION = new_file_location;
+
+		REPORT_PAGE = new Template(REPORT_PAGE).execute({
+			'github-user': GITHUB_USER,
+			'github-repo': GITHUB_REPO,
+		});
+
+		#if CRASH_HANDLER
+		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
+		#end
+	}
+
+	/**
+		Code was entirely made by sqirra-rng for their fnf engine named "Izzy Engine",
+		big props to them!!!
+
+		very cool person for real they don't get enough credit for their work
+	**/
 	#if CRASH_HANDLER
 	public static function onCrash(e:UncaughtErrorEvent):Void
 	{
@@ -54,7 +87,8 @@ class CrashHandler
 		errMsg += "\nPlease report this error to the GitHub page: " + REPORT_PAGE;
 		errMsg += "\n\n> Crash Handler originally written by: sqirra-rng";
 
-		if (!FileSystem.exists("./" + FILE_LOCATION)) FileSystem.createDirectory("./" + FILE_LOCATION);
+		if (!FileSystem.exists("./" + FILE_LOCATION))
+			FileSystem.createDirectory("./" + FILE_LOCATION);
 
 		File.saveContent(path, errMsg + "\n");
 
