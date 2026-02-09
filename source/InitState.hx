@@ -7,6 +7,6 @@ class InitState extends FlxState
 	{
 		super.create();
 
-		FlxG.switchState(PlayState.new);
+		FlxG.switchState(MainMenuState.new);
 	}
 }

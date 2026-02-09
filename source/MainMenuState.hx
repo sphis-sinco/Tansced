@@ -1,6 +1,4 @@
-import flixel.FlxState;
-
-class PlayState extends FlxState
+class MainMenuState extends MenuState
 {
 	override public function create()
 	{
