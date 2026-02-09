@@ -14,6 +14,13 @@ import sys.io.File;
 using StringTools;
 #end
 
+/**
+	This is to fix the annoying crashes with no
+	response from haxeflixel unless in a debug build
+
+	_Last edit date_: 2/9/2026
+	@since 2/9/2026
+**/
 class CrashHandler
 {
 	public static var REPORT_PAGE:String = 'https://github.com/::github-user::/::github-repo::/issues';
